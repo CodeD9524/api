@@ -53,9 +53,9 @@ document.getElementById('minTempBtn').addEventListener('click', () => {
   fetchWeatherData('temperature_2m_min');
 });
 window.addEventListener('load', () => {
-  fetchWeatherData('temperature_2m_max');  // Load max temperature as default
+  fetchWeatherData('temperature_2m_max');  // Load max temperature 
 });
-let currentDataPoint = 'temperature_2m_max';  // default data point
+let currentDataPoint = 'temperature_2m_max';  // default min temp
 
 async function fetchWeatherData(dataPoint, latitude, longitude) {
 const baseUrl = 'https://api.open-meteo.com/v1/forecast';
