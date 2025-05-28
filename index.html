@@ -9,7 +9,22 @@
 </head>
 <body>
     <h1>this is the weather channel</h1>
-    <script src="js/index.js"></script>
-
+    <div id="weather-container">
+      <!-- City selector dropdown -->
+      <label for="citySelector">Select City:</label>
+      <select id="citySelector">
+        <option value="35.2,-80.4">Charlotte</option>
+        <option value="40.71,-74.01">New York</option>
+        <option value="34.05,-118.25">Los Angeles</option>
+        <option value="53.3833,-1.4667">Sheffield, UK</option>
+        <option value="56.1165,-3.9369">Stirling, Scotland</option>
+      </select>
+      <nav>
+        <button id="maxTempBtn">Max Temperature</button>
+        <button id="minTempBtn">Min Temperature</button>
+      </nav>
+      <div id="weather-display">
+      </div>
+  </div>
+  <script src="js/index.js"></script>
 </body>
-</html>
