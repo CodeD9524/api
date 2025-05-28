@@ -55,3 +55,34 @@ async function fetchData() {
   window.addEventListener('load', () => {
     fetchWeatherData('temperature_2m_max');  // Load max temperature as default
   });
+  let currentDataPoint = 'temperature_2m_max';  // default data point
+
+async function fetchWeatherData(dataPoint, latitude, longitude) {
+  const baseUrl = 'https://api.open-meteo.com/v1/forecast';
+  const url = `${baseUrl}?latitude=${latitude}&longitude=${longitude}&daily=${dataPoint}&timezone=auto`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Failed to fetch weather data');
+
+    const data = await response.json();
+    displayWeatherData(data, dataPoint);
+  } catch(error) {
+    document.getElementById('weather-display').textContent = 'Error loading weather data.';
+    console.error(error);
+  }
+}document.getElementById('maxTempBtn').addEventListener('click', () => {
+  currentDataPoint = 'temperature_2m_max';
+  const [lat, lon] = document.getElementById('citySelector').value.split(',');
+  fetchWeatherData(currentDataPoint, parseFloat(lat), parseFloat(lon));
+});
+
+document.getElementById('minTempBtn').addEventListener('click', () => {
+  currentDataPoint = 'temperature_2m_min';
+  const [lat, lon] = document.getElementById('citySelector').value.split(',');
+  fetchWeatherData(currentDataPoint, parseFloat(lat), parseFloat(lon));
+});
+window.addEventListener('load', () => {
+  const [lat, lon] = document.getElementById('citySelector').value.split(',');
+  fetchWeatherData(currentDataPoint, parseFloat(lat), parseFloat(lon));
+});
