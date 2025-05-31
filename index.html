@@ -18,12 +18,12 @@
         <option value="53.3833,-1.4667">Sheffield, UK</option>
         <option value="56.1165,-3.9369">Stirling, Scotland</option>
       </select>
-      <nav>
-        <button id="maxTempBtn">Max Temperature</button>
-        <button id="minTempBtn">Min Temperature</button>
+      <nav id="nav-tabs">
+        <button class="tab-btn active" data-endpoint="temperature_2m_max">Max Temperature</button>
+        <button class="tab-btn" data-endpoint="temperature_2m_min">Min Temperature</button>
+        <button class="tab-btn" data-endpoint="weathercode">Weather Conditions</button>
       </nav>
       <div id="weather-display">
       </div>
-  </div>
   <script src="js/index.js"></script>
 </body>
